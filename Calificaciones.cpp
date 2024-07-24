@@ -2,6 +2,11 @@
 //
 
 #include <iostream>
+#include "group.h"
+#include "student.h"
+#include "list.h"
+#include "string"
+
 #ifdef _WIN32
 #include<windows.h>
 #endif  
@@ -27,20 +32,43 @@ void menu() {
     std::cout << "3.Eliminar grupo" << std::endl;
     std::cout << "4.Eliminar alumno" << std::endl;
     std::cout << "5.Mostrar grupos" << std::endl;
-    std::cout << "0. Salir" << std::endl;
+    std::cout << "6. Salir" << std::endl;
     std::cout << "Ingresar opcion:  ";
+}
+
+void error() {
+    std::cin.clear();
+    std::cin.ignore();
+    std::cerr << "Cadena de caracteres incorrectos" << std::endl;
+    pause();
+    clear_screen();
 }
 
 int main()
 {
+    group infoGroup;
+    student studentData;
+    list listOperation;
     int opc = 1;
+    std::string nameGroup;
     do
     {
         menu();
         std::cin >> opc;
+        if (std::cin.fail())
+        {
+            error();
+        }
         switch (opc)
         {
         case 1:
+            clear_screen();
+            std::cout << "Ingresa el nombre del grupo" << std::endl;
+            std::cin >> nameGroup;
+            infoGroup.setNameGroup(nameGroup);
+            infoGroup.setNumberStudent(0);
+            listOperation.insertGroup(infoGroup);
+            clear_screen();
             break;
         case 2:
             break;
@@ -49,8 +77,18 @@ int main()
         case 4:
             break;
         case 5:
+            if (! listOperation.showGroups())
+            {
+                std::cerr << "No existen grupos para mostrar" << std::endl;
+                pause();
+            }
+            else
+            {
+                pause();
+            }
+            clear_screen();
             break;
-        case 0:
+        case 6:
             std::cout << "Usted esta saliendo de la aplicacion" << std::endl;
             pause();
             clear_screen();
@@ -58,5 +96,5 @@ int main()
         default:
             break;
         }
-    } while (opc != 0);
+    } while (opc != 6);
 }

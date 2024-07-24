@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Calificaciones.cpp" />
     <ClCompile Include="group.cpp" />
+    <ClCompile Include="list.cpp" />
     <ClCompile Include="Nodos.cpp" />
     <ClCompile Include="student.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="group.h" />
+    <ClInclude Include="list.h" />
     <ClInclude Include="Nodos.h" />
     <ClInclude Include="student.h" />
   </ItemGroup>
