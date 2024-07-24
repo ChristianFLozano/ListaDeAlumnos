@@ -6,13 +6,21 @@
 #include<windows.h>
 #endif  
 
-void limpiar_pantalla(){
+void clear_screen(){
 #ifdef _WIN32
     system("cls");
 #else
     system("clear");
 #endif
 }
+
+void pause() {
+    std::cout << "Presione Enter para continuar...";
+    std::cin.ignore();
+    std::cin.get();
+    return;
+}
+
 void menu() {
     std::cout << "1.Anadir grupo" << std::endl;
     std::cout << "2.Anadir alumno" << std::endl;
@@ -44,8 +52,8 @@ int main()
             break;
         case 0:
             std::cout << "Usted esta saliendo de la aplicacion" << std::endl;
-            system("pause");
-            limpiar_pantalla();
+            pause();
+            clear_screen();
             break;
         default:
             break;
