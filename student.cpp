@@ -1,7 +1,7 @@
 #include "student.h"
 
 student::student()
-    : studentName(""), age(0), average(0.0f) {}
+    : studentName(""), age(0) {}
 
 std::string student::getStudentName() const
 {
@@ -21,15 +21,5 @@ int student::getAge() const
 void student::setAge(int newAge)
 {
     age = newAge;
-}
-
-float student::getAverage() const
-{
-    return average;
-}
-
-void student::setAverage(float newAverage)
-{
-    average = newAverage;
 }
 

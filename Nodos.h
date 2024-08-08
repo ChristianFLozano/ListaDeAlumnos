@@ -10,7 +10,9 @@ public:
 
     mainNode* getNext() const;
     mainNode* getPrev() const;
-    group getInfo() const;
+    group& getInfo();
+    secondaryNode* getStudent() const;
+    void setStudent(secondaryNode* header);
     void setNext(mainNode* next);
     void setPrev(mainNode* prev);
 
@@ -30,7 +32,6 @@ public:
     student getData() const;
     void setNext(secondaryNode* next);
     void setPrev(secondaryNode* prev);
-
 private:
     secondaryNode* next;
     secondaryNode* prev;

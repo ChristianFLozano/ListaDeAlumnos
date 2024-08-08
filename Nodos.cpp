@@ -14,9 +14,19 @@ mainNode* mainNode::getPrev() const {
     return prev;
 }
 
-group mainNode::getInfo() const {
+group& mainNode::getInfo() {
     return info;
 }
+
+secondaryNode* mainNode::getStudent() const {
+    return student;
+}
+
+
+void mainNode::setStudent(secondaryNode* header) {
+    student = header;
+}
+
 
 void mainNode::setNext(mainNode* next) {
     this->next = next;
@@ -25,6 +35,7 @@ void mainNode::setNext(mainNode* next) {
 void mainNode::setPrev(mainNode* prev) {
     this->prev = prev;
 }
+
 
 secondaryNode::secondaryNode(student data, secondaryNode* next, secondaryNode* prev)
     : data(data), next(next), prev(prev) {}
